@@ -66,7 +66,6 @@ class Parser
             throw new YamlParseException(ParseError::FILE_NOT_READABLE, filePath: $realPath);
         }
 
-        $buffer = new Buffer($this, $realPath);
         $lines = file_get_contents($realPath);
         if ($lines === false) {
             throw new YamlParseException(ParseError::FILE_READ_ERROR, filePath: $realPath);
@@ -76,6 +75,7 @@ class Parser
 
         try {
             $lines = explode($this->eolChar, $lines);
+            $buffer = new Buffer($this, $realPath);
             $num = 1;
             foreach ($lines as $line) {
                 $line = new Line($this, $num, $line);
