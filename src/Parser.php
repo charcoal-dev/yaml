@@ -16,7 +16,7 @@ namespace Charcoal\Yaml;
 
 use Charcoal\Yaml\Exception\ParseError;
 use Charcoal\Yaml\Exception\YamlParseException;
-use Charcoal\Yaml\Parser\Buffer;
+use Charcoal\Yaml\Parser\Block;
 use Charcoal\Yaml\Parser\Line;
 
 /**
@@ -75,7 +75,7 @@ class Parser
 
         try {
             $lines = explode($this->eolChar, $lines);
-            $buffer = new Buffer($this, $realPath);
+            $buffer = new Block($this, $realPath);
             $num = 1;
             foreach ($lines as $line) {
                 $line = new Line($this, $num, $line);

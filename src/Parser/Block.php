@@ -19,10 +19,10 @@ use Charcoal\Yaml\Exception\YamlParseException;
 use Charcoal\Yaml\Parser;
 
 /**
- * Class Buffer
+ * Class Block
  * @package Charcoal\Yaml\Parser
  */
-class Buffer
+class Block
 {
     /** @var array */
     public array $lines = [];
@@ -49,7 +49,7 @@ class Buffer
 
     /**
      * @param Line $line
-     * @return Buffer
+     * @return Block
      */
     public function append(Line $line): static
     {
@@ -61,7 +61,7 @@ class Buffer
      * @param int $indent
      * @param string|null $key
      * @param string|null $type
-     * @return Buffer
+     * @return Block
      */
     private function createSubBuffer(int $indent = 0, ?string $key = null, ?string $type = null): static
     {
@@ -75,7 +75,7 @@ class Buffer
     public function getParsed(): ?array
     {
         $parsed = [];
-        /** @var null|Buffer $subBuffer */
+        /** @var null|Block $subBuffer */
         $subBuffer = null;
 
         /** @var Line $line */
