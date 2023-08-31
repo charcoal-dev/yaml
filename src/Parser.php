@@ -74,7 +74,7 @@ class Parser
         }
 
         try {
-            $lines = explode($this->eolChar, $lines);
+            $lines = preg_split("/\r\n|\n|\r/", $lines);
             $buffer = new Block($this, $realPath);
             $num = 1;
             foreach ($lines as $line) {

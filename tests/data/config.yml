@@ -1,0 +1,8 @@
+vendor: FirstByte.ae
+
+imports:
+ - config/cache.yml
+ - website.yml
+ - config/databases.yml
+
+framework: Charcoal
