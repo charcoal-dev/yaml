@@ -1,13 +1,7 @@
 <?php
-/*
- * This file is a part of "charcoal-dev/yaml" package.
- * https://github.com/charcoal-dev/yaml
- *
- * Copyright (c) Furqan A. Siddiqui <hello@furqansiddiqui.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code or visit following link:
- * https://github.com/charcoal-dev/yaml/blob/main/LICENSE
+/**
+ * Part of the "charcoal-dev/yaml" package.
+ * @link https://github.com/charcoal-dev/yaml
  */
 
 declare(strict_types=1);
@@ -20,15 +14,15 @@ use Charcoal\Yaml\Exception\YamlCompilerException;
  * Class Compiler
  * @package Charcoal\Yaml
  */
-class Compiler
+readonly class Compiler
 {
     /**
      * @param int $indent
      * @param string $eolChar
      */
     public function __construct(
-        public readonly int    $indent = 2,
-        public readonly string $eolChar = PHP_EOL
+        public int    $indent = 2,
+        public string $eolChar = PHP_EOL
     )
     {
         if ($this->indent < 2 || $this->indent > 8) {
@@ -39,7 +33,7 @@ class Compiler
     /**
      * @param array $data
      * @return string
-     * @throws \Charcoal\Yaml\Exception\YamlCompilerException
+     * @throws YamlCompilerException
      */
     public function generate(array $data): string
     {
@@ -55,7 +49,7 @@ class Compiler
      * @param string|null $parent
      * @param int $tier
      * @return string
-     * @throws \Charcoal\Yaml\Exception\YamlCompilerException
+     * @throws YamlCompilerException
      */
     private function compile(array $input, ?string $parent = null, int $tier = 0): string
     {
@@ -144,7 +138,7 @@ class Compiler
                     $value = json_decode(json_encode($value), true);
                 }
 
-                // Whether value was Array, or is now Array after conversion from object
+                // Whether value was Array or is now Array after conversion from an object
                 if (is_array($value)) {
                     $compiled .= $this->indent($indent);
                     $compiled .= sprintf('%s:%s', $key, $this->eolChar);
