@@ -1,18 +1,12 @@
 <?php
-/*
- * This file is a part of "charcoal-dev/yaml" package.
- * https://github.com/charcoal-dev/yaml
- *
- * Copyright (c) Furqan A. Siddiqui <hello@furqansiddiqui.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code or visit following link:
- * https://github.com/charcoal-dev/yaml/blob/main/LICENSE
+/**
+ * Part of the "charcoal-dev/yaml" package.
+ * @link https://github.com/charcoal-dev/yaml
  */
 
 declare(strict_types=1);
 
-namespace Charcoal\Tests\Yaml;
+namespace Charcoal\Yaml\Tests;
 
 use Charcoal\Yaml\Exception\ParseError;
 use Charcoal\Yaml\Exception\YamlParseException;
@@ -21,7 +15,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Class ParserTest
- * @package Charcoal\Tests\Yaml
+ * @package Charcoal\Yaml\Tests
  */
 class ParserTest extends TestCase
 {

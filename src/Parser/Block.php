@@ -1,13 +1,7 @@
 <?php
-/*
- * This file is a part of "charcoal-dev/yaml" package.
- * https://github.com/charcoal-dev/yaml
- *
- * Copyright (c) Furqan A. Siddiqui <hello@furqansiddiqui.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code or visit following link:
- * https://github.com/charcoal-dev/yaml/blob/main/LICENSE
+/**
+ * Part of the "charcoal-dev/yaml" package.
+ * @link https://github.com/charcoal-dev/yaml
  */
 
 declare(strict_types=1);
@@ -21,19 +15,13 @@ use Charcoal\Yaml\Parser;
 /**
  * Class Block
  * @package Charcoal\Yaml\Parser
+ * @internal
  */
 class Block
 {
     /** @var array */
     public array $lines = [];
 
-    /**
-     * @param \Charcoal\Yaml\Parser $parser
-     * @param string $filePath
-     * @param int $indent
-     * @param string|null $key
-     * @param string|null $type
-     */
     public function __construct(
         private readonly Parser $parser,
         public readonly string  $filePath,
@@ -70,7 +58,7 @@ class Block
 
     /**
      * @return array|null
-     * @throws \Charcoal\Yaml\Exception\YamlParseException
+     * @throws YamlParseException
      */
     public function getParsed(): ?array
     {
@@ -190,9 +178,9 @@ class Block
     }
 
     /**
-     * @param \Charcoal\Yaml\Parser\Line $line
+     * @param Line $line
      * @return int|float|string|bool|null
-     * @throws \Charcoal\Yaml\Exception\YamlParseException
+     * @throws YamlParseException
      */
     private function getLineValue(Line $line): int|float|string|bool|null
     {

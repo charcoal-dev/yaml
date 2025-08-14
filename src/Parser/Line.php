@@ -1,13 +1,7 @@
 <?php
-/*
- * This file is a part of "charcoal-dev/yaml" package.
- * https://github.com/charcoal-dev/yaml
- *
- * Copyright (c) Furqan A. Siddiqui <hello@furqansiddiqui.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code or visit following link:
- * https://github.com/charcoal-dev/yaml/blob/main/LICENSE
+/**
+ * Part of the "charcoal-dev/yaml" package.
+ * @link https://github.com/charcoal-dev/yaml
  */
 
 declare(strict_types=1);
@@ -30,10 +24,7 @@ class Line
     public ?string $value = null;
 
     /**
-     * @param \Charcoal\Yaml\Parser $parser
-     * @param int $num
-     * @param string $raw
-     * @throws \Charcoal\Yaml\Exception\YamlParseException
+     * @throws YamlParseException
      */
     public function __construct(
         Parser                 $parser,
@@ -60,7 +51,7 @@ class Line
         if ($line) {
             // Check if line has a key
             if (preg_match('/^\s*[\w\-.]+:/', $line)) {
-                // Key exists, split into key/value pair
+                // Key exists, split into a key/value pair
                 $line = explode(":", $line, 2);
                 $this->key = trim($line[0]);
                 /** @noinspection PhpCastIsUnnecessaryInspection */

@@ -15,12 +15,13 @@
   "require": {
     "php": "^8.3",
     "ext-mbstring": "*",
+    "charcoal-dev/buffers": "^0.2.0",
     "ext-ctype": "*"
   },
   "autoload": {
     "psr-4": {
       "Charcoal\\Yaml\\": [
-        "src"
+        "src/"
       ]
     }
   },
